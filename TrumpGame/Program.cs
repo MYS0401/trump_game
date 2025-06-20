@@ -11,6 +11,7 @@ namespace TrumpGame
         static void Main(string[] args)
         {
             int [] card = new int [4];
+            int count = 0;
 
             for (int i = 0; i < 4; i++)
             {
@@ -31,6 +32,37 @@ namespace TrumpGame
                     }
                 }
                 
+            }
+
+            //役判定
+            for (int i = 0; i < 4; i ++)
+            {
+                for (int j = 0; j < 4;j++)
+                {
+                    if (card[i] == card[j])
+                    {
+                        count++;
+                    }
+                }
+            }
+
+            switch (count)
+            {
+                case 4:
+                    Console.WriteLine("----------\nノーペア\n----------");
+                    break;
+                case 6:
+                    Console.WriteLine("----------\nワンペア\n----------");
+                    break;
+                case 8:
+                    Console.WriteLine("----------\nツーペア\n----------");
+                    break;
+                case 10:
+                    Console.WriteLine("----------\nスリーカード\n----------");
+                    break;
+                case 16:
+                    Console.WriteLine("----------\nフォーカード\n----------");
+                    break;
             }
 
             for (int i = 0;i < 4;i++)
